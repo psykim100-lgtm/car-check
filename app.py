@@ -97,7 +97,8 @@ if check_password():
                 st.warning("숫자 4자리를 정확히 입력해주세요.")
 
     if car_data:
-        st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+        st.caption(f"원주시 기계직화이팅")
+
 
 
 
