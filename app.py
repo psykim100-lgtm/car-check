@@ -87,7 +87,7 @@ if check_password():
             if len(user_input) == 4 and user_input.isdigit():
                 if user_input in car_data:
                     full_num = car_data[user_input]
-                    st.success("확인되었습니다!")
+                    st.success("민원인주차구역 적발대상!")
                     st.markdown(f'<p class="big-font">✅ 직원차량</p>', unsafe_allow_html=True)
                     st.markdown(f'<p class="medium-font"> {full_num}</p>', unsafe_allow_html=True)
                 else:
@@ -98,6 +98,7 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
 
 
