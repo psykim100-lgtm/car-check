@@ -83,21 +83,25 @@ if check_password():
         )
 
 
-        if st.button("조회하기") or user_input:
-            if len(user_input) == 4 and user_input.isdigit():
+if len(user_input) == 4:
+            if user_input.isdigit():
                 if user_input in car_data:
                     full_num = car_data[user_input]
                     st.success("확인되었습니다!")
                     st.markdown(f'<p class="big-font">✅ 직원차량</p>', unsafe_allow_html=True)
-                    st.markdown(f'<p class="medium-font"> {full_num}</p>', unsafe_allow_html=True)
+                    st.markdown(f'<p class="medium-font">전체번호: {full_num}</p>', unsafe_allow_html=True)
                 else:
                     st.error("미등록 차량입니다.")
                     st.markdown(f'<p class="big-font">❌ 외부차량</p>', unsafe_allow_html=True)
-            elif user_input:
-                st.warning("숫자 4자리를 정확히 입력해주세요.")
-
+            else:
+                st.warning("숫자만 입력해주세요.")
+        
+        # 4자리가 아닐 때는 아무것도 띄우지 않거나 안내 문구만 유지합니다.
+        elif len(user_input) > 0:
+            st.info("4자리를 입력하면 자동으로 조회됩니다.")
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
 
 
