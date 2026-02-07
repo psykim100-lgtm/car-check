@@ -54,7 +54,7 @@ if check_password():
     # 데이터 로드
     car_data = load_car_data()
 
-    st.markdown('<p class="big-font">🚗 차량 출입 판독기</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">🚗 차량 판독기</p>', unsafe_allow_html=True)
     
     # 로그아웃 버튼 (선택사항)
     if st.sidebar.button("로그아웃"):
@@ -81,6 +81,7 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
 
 
