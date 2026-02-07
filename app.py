@@ -6,8 +6,8 @@ st.set_page_config(page_title="차량 판독기", page_icon="🚗")
 # 스타일 설정
 st.markdown("""
     <style>
-    .big-font { font-size:100px !important; font-weight: bold; }
-    .medium-font { font-size:100px !important; }
+    .big-font { font-size:50px !important; font-weight: bold; }
+    .medium-font { font-size:50px !important; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -82,6 +82,7 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
 
 
