@@ -65,6 +65,7 @@ if check_password():
         st.error("numbers.txt 파일을 찾을 수 없습니다.")
     else:
         st.markdown('<p class="medium-font">차량번호 뒷 4자리를 입력하세요</p>', unsafe_allow_html=True)
+        user_input = st.text_input("", max_chars=4, key="car_input")
 
         if st.button("조회하기") or user_input:
             if len(user_input) == 4 and user_input.isdigit():
@@ -81,6 +82,7 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
 
 
