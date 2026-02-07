@@ -72,7 +72,7 @@ if check_password():
                     full_num = car_data[user_input]
                     st.success("확인되었습니다!")
                     st.markdown(f'<p class="big-font">✅ 직원차량</p>', unsafe_allow_html=True)
-                    st.markdown(f'<p class="medium-font">전체번호: {full_num}</p>', unsafe_allow_html=True)
+                    st.markdown(f'<p class="medium-font"> {full_num}</p>', unsafe_allow_html=True)
                 else:
                     st.error("미등록 차량입니다.")
                     st.markdown(f'<p class="big-font">❌ 외부차량</p>', unsafe_allow_html=True)
@@ -81,5 +81,6 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
 
