@@ -6,8 +6,8 @@ st.set_page_config(page_title="차량 판독기", page_icon="🚗")
 # 스타일 설정
 st.markdown("""
     <style>
-    .big-font { font-size:50px !important; font-weight: bold; }
-    .medium-font { font-size:30px !important; }
+    .big-font { font-size:100px !important; font-weight: bold; }
+    .medium-font { font-size:100px !important; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -16,7 +16,7 @@ def check_password():
     """비밀번호가 맞으면 True를 반환합니다."""
     def password_entered():
         # 본인이 사용할 비밀번호를 입력하세요
-        if st.session_state["password"] == "0210": 
+        if st.session_state["password"] == "1234": 
             st.session_state["password_correct"] = True
             del st.session_state["password"]  # 보안을 위해 세션에서 비밀번호 삭제
         else:
@@ -81,4 +81,5 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
 
