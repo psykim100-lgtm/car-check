@@ -51,11 +51,12 @@ def load_car_data():
 
 # --- 메인 로직 시작 ---
 if check_password():
+    # 데이터 로드
     car_data = load_car_data()
 
-    # 제목 폰트
-    st.markdown('<p class="big-font">🚗 차량 출입 판독기</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">🚗 차량 판독기</p>', unsafe_allow_html=True)
     
+    # 로그아웃 버튼 (선택사항)
     if st.sidebar.button("로그아웃"):
         st.session_state["password_correct"] = False
         st.rerun()
@@ -63,29 +64,28 @@ if check_password():
     if car_data is None:
         st.error("numbers.txt 파일을 찾을 수 없습니다.")
     else:
-        # 입력창 안내 문구
         st.markdown('<p class="medium-font">차량번호 뒷 4자리를 입력하세요</p>', unsafe_allow_html=True)
-        
-        # 키보드가 바로 올라오도록 구성 (입력창)
         user_input = st.text_input("", max_chars=4, key="car_input")
 
-        # [핵심] 입력값이 4자리인 경우 버튼 클릭 없이 즉시 실행
-        if len(user_input) == 4:
-            if user_input.isdigit():
+        if st.button("조회하기") or user_input:
+            if len(user_input) == 4 and user_input.isdigit():
                 if user_input in car_data:
                     full_num = car_data[user_input]
                     st.success("확인되었습니다!")
                     st.markdown(f'<p class="big-font">✅ 직원차량</p>', unsafe_allow_html=True)
-                    st.markdown(f'<p class="medium-font">전체번호: {full_num}</p>', unsafe_allow_html=True)
+                    st.markdown(f'<p class="medium-font"> {full_num}</p>', unsafe_allow_html=True)
                 else:
                     st.error("미등록 차량입니다.")
                     st.markdown(f'<p class="big-font">❌ 외부차량</p>', unsafe_allow_html=True)
-            else:
-                st.warning("숫자만 입력해주세요.")
-        
-        # 4자리가 아닐 때는 아무것도 띄우지 않거나 안내 문구만 유지합니다.
-        elif len(user_input) > 0:
-            st.info("4자리를 입력하면 자동으로 조회됩니다.")
+            elif user_input:
+                st.warning("숫자 4자리를 정확히 입력해주세요.")
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
+
+
+
+
+
+
