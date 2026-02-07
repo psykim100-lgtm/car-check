@@ -96,10 +96,10 @@ if check_password():
             elif user_input:
                 st.warning("숫자 4자리를 정확히 입력해주세요.")
 
-    if car_data:
          st.title("원주시 기계직 화이팅")
 
        
+
 
 
 
