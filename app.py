@@ -15,8 +15,8 @@ st.markdown("""
 def check_password():
     """비밀번호가 맞으면 True를 반환합니다."""
     def password_entered():
-        # 본인이 사용할 비밀번호를 '1234' 대신 입력하세요
-        if st.session_state["password"] == "1234": 
+        # 본인이 사용할 비밀번호를 입력하세요
+        if st.session_state["password"] == "0210": 
             st.session_state["password_correct"] = True
             del st.session_state["password"]  # 보안을 위해 세션에서 비밀번호 삭제
         else:
@@ -81,3 +81,4 @@ if check_password():
 
     if car_data:
         st.caption(f"현재 데이터베이스에 {len(car_data)}대의 차량이 등록되어 있습니다.")
+
