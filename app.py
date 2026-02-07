@@ -95,10 +95,11 @@ if check_password():
                     st.markdown(f'<p class="big-font">❌ 외부차량</p>', unsafe_allow_html=True)
             elif user_input:
                 st.warning("숫자 4자리를 정확히 입력해주세요.")
-
+if car_data:
          st.title("원주시 기계직 화이팅")
 
        
+
 
 
 
